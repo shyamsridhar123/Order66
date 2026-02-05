@@ -100,14 +100,14 @@ The **Chat Interface** (`/` - home page) uses these endpoints to:
 - Show real-time agent processing status via WebSocket
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Conversations Sidebar  │       Chat Messages Area          │
-│  ─────────────────────  │  ─────────────────────────────── │
-│  📁 New Conversation    │  👤 User: "Help me with..."      │
-│  📁 Previous Chat 1     │  🤖 Assistant: "Based on..."     │
-│  📁 Previous Chat 2     │                                   │
-│                         │  [Message Input] [Send]           │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|  Conversations Sidebar  |       Chat Messages Area          |
+|  ---------------------  |  ------------------------------- |
+|  📁 New Conversation    |  👤 User: "Help me with..."      |
+|  📁 Previous Chat 1     |  🤖 Assistant: "Based on..."     |
+|  📁 Previous Chat 2     |                                   |
+|                         |  [Message Input] [Send]           |
++-------------------------------------------------------------+
 ```
 
 ### Endpoints
@@ -259,13 +259,13 @@ The response contains the final assistant message after all agent processing com
 **Processing Flow:**
 
 ```
-User Message → Orchestrator → [Agents Execute] → Final Response
-                    │
-                    ├──→ Researcher (if research needed)
-                    ├──→ Analyst (if analysis needed)
-                    ├──→ Scribe (if document generation)
-                    ├──→ Memory (for context retrieval)
-                    └──→ Strategist (for proposals)
+User Message -> Orchestrator -> [Agents Execute] -> Final Response
+                    |
+                    +---> Researcher (if research needed)
+                    +---> Analyst (if analysis needed)
+                    +---> Scribe (if document generation)
+                    +---> Memory (for context retrieval)
+                    +---> Strategist (for proposals)
 ```
 
 **UX Context:**
@@ -291,16 +291,16 @@ The **Proposals Page** (`/proposals`) provides:
 - Export functionality (PDF, DOCX, Markdown, HTML)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Proposals                            [+ Generate Proposal] │
-│  ─────────────────────────────────────────────────────────  │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐           │
-│  │ Acme Corp   │ │ TechStart   │ │ Global Inc  │           │
-│  │ Digital Tx  │ │ AI Strategy │ │ Cloud Migr  │           │
-│  │ [View]      │ │ [View]      │ │ [View]      │           │
-│  │ [Export]    │ │ [Export]    │ │ [Export]    │           │
-│  └─────────────┘ └─────────────┘ └─────────────┘           │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|  Proposals                            [+ Generate Proposal] |
+|  ----------------------------------------------------------  |
+|  +-------------+ +-------------+ +-------------+            |
+|  | Acme Corp   | | TechStart   | | Global Inc  |            |
+|  | Digital Tx  | | AI Strategy | | Cloud Migr  |            |
+|  | [View]      | | [View]      | | [View]      |            |
+|  | [Export]    | | [Export]    | | [Export]    |            |
+|  +-------------+ +-------------+ +-------------+            |
++-------------------------------------------------------------+
 ```
 
 ### Endpoints
@@ -420,19 +420,19 @@ The **Research Page** (`/research`) offers two tabs:
 2. **Client Briefing** - Company-specific intelligence
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Research                                                    │
-│  ─────────────────────────────────────────────────────────  │
-│  [Research Query] [Client Briefing]                          │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ What would you like to research?                       │ │
-│  │ ______________________________________________________ │ │
-│  │                                                        │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  [Start Research]  Sources: [Web] [News] [Company Data]     │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|  Research                                                    |
+|  ----------------------------------------------------------  |
+|  [Research Query] [Client Briefing]                          |
+|                                                              |
+|  +--------------------------------------------------------+ |
+|  | What would you like to research?                       | |
+|  | ______________________________________________________ | |
+|  |                                                        | |
+|  +--------------------------------------------------------+ |
+|                                                              |
+|  [Start Research]  Sources: [Web] [News] [Company Data]     |
++-------------------------------------------------------------+
 ```
 
 ### Endpoints
@@ -619,18 +619,18 @@ The **Knowledge Page** (`/knowledge`) displays:
 - Category and industry filters
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Knowledge Base                                              │
-│  ─────────────────────────────────────────────────────────  │
-│  🔍 [Search knowledge base...]           [Search] [Clear]    │
-│                                                              │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐           │
-│  │ Framework   │ │ Case Study  │ │ Best        │           │
-│  │ Guide       │ │ Healthcare  │ │ Practices   │           │
-│  │ [Strategy]  │ │ [Healthcare]│ │ [Cloud]     │           │
-│  │ 95% match   │ │ 87% match   │ │ 82% match   │           │
-│  └─────────────┘ └─────────────┘ └─────────────┘           │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|  Knowledge Base                                              |
+|  ----------------------------------------------------------  |
+|  🔍 [Search knowledge base...]           [Search] [Clear]    |
+|                                                              |
+|  +-------------+ +-------------+ +-------------+            |
+|  | Framework   | | Case Study  | | Best        |            |
+|  | Guide       | | Healthcare  | | Practices   |            |
+|  | [Strategy]  | | [Healthcare]| | [Cloud]     |            |
+|  | 95% match   | | 87% match   | | 82% match   |            |
+|  +-------------+ +-------------+ +-------------+            |
++-------------------------------------------------------------+
 ```
 
 ### Endpoints
@@ -729,25 +729,25 @@ The **Analytics Page** (`/analytics`) shows:
 - Filterable execution trace history
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Analytics                                                   │
-│  ─────────────────────────────────────────────────────────  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
-│  │ 156      │ │ 7        │ │ 45,230   │ │ 2.3s     │       │
-│  │ Execs    │ │ Agents   │ │ Tokens   │ │ Avg Time │       │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
-│                                                              │
-│  Agent Performance:                                          │
-│  ● Orchestrator ████████████████░░░░░░ 45 runs              │
-│  ● Researcher   ██████████░░░░░░░░░░░░ 28 runs              │
-│  ● Scribe       ████████░░░░░░░░░░░░░░ 22 runs              │
-│                                                              │
-│  Recent Traces:  [All] [Completed] [Failed]                  │
-│  ─────────────────────────────────────────────────────────  │
-│  ● orchestrator • task_decomposition    2.1s  1,240 ✓       │
-│  ● researcher   • web_search            3.4s  2,100 ✓       │
-│  ● scribe       • document_generation   1.8s    890 ✓       │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|  Analytics                                                   |
+|  ----------------------------------------------------------  |
+|  +----------+ +----------+ +----------+ +----------+        |
+|  | 156      | | 7        | | 45,230   | | 2.3s     |        |
+|  | Execs    | | Agents   | | Tokens   | | Avg Time |        |
+|  +----------+ +----------+ +----------+ +----------+        |
+|                                                              |
+|  Agent Performance:                                          |
+|  * Orchestrator ████████████████░░░░░░ 45 runs              |
+|  * Researcher   ██████████░░░░░░░░░░░░ 28 runs              |
+|  * Scribe       ████████░░░░░░░░░░░░░░ 22 runs              |
+|                                                              |
+|  Recent Traces:  [All] [Completed] [Failed]                  |
+|  ----------------------------------------------------------  |
+|  * orchestrator * task_decomposition    2.1s  1,240 ✓       |
+|  * researcher   * web_search            3.4s  2,100 ✓       |
+|  * scribe       * document_generation   1.8s    890 ✓       |
++-------------------------------------------------------------+
 ```
 
 ### Endpoints
