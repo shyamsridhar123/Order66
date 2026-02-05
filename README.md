@@ -212,10 +212,16 @@ pytest tests/test_chat.py   # Run specific test file
 
 ## Documentation
 
+### Core Documentation
 - [API Reference](docs/API.md) — Complete REST & WebSocket API documentation
 - [Product Requirements](docs/PRD.md) — Business context, user stories, success criteria
 - [Technical Requirements](docs/TRD.md) — Architecture, implementation details
 - [Demo Plan](docs/DEMO_PLAN.md) — Demo scenarios and walkthrough guide
+
+### Quality & Improvements
+- **[Executive Summary](docs/EXECUTIVE_SUMMARY.md)** — Quick overview of codebase status and recommendations
+- **[Technical Review](docs/REVIEW.md)** — Comprehensive code review with 23 recommendations
+- **[Implementation Guide](docs/IMPLEMENTATION_GUIDE.md)** — Ready-to-use code for production hardening
 
 ---
 
