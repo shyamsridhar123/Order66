@@ -261,11 +261,11 @@ The response contains the final assistant message after all agent processing com
 ```
 User Message -> Orchestrator -> [Agents Execute] -> Final Response
                     |
-                    +---> Researcher (if research needed)
-                    +---> Analyst (if analysis needed)
-                    +---> Scribe (if document generation)
-                    +---> Memory (for context retrieval)
-                    +---> Strategist (for proposals)
+                    +-> Researcher (if research needed)
+                    +-> Analyst (if analysis needed)
+                    +-> Scribe (if document generation)
+                    +-> Memory (for context retrieval)
+                    +-> Strategist (for proposals)
 ```
 
 **UX Context:**
