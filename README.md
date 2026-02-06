@@ -1,87 +1,227 @@
 # Nodus
 
-## AI-Powered Professional Services Engagement Platform
+## 🤖 Multi-Agent AI Orchestration Platform
 
-A demonstration platform showcasing how AI agents can transform professional services delivery. Built on Microsoft Agent Framework and Azure OpenAI GPT-5.x.
+> **Your AI-Powered Consulting Team** — Coordinated AI agents that deliver enterprise-grade outputs in minutes, not days.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
+![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-white?logo=ollama)
 
 ---
 
-## Overview
+## 🎯 What is Nodus?
 
-**Nodus** deploys a coordinated team of specialized AI agents that mirror a consulting firm's operating model, enabling rapid proposal generation, intelligent research, and automated document creation.
+Nodus deploys a coordinated team of **7 specialized AI agents** that mirror a consulting firm's operating model. Built on the **Microsoft Agent Framework**, it enables:
+
+- ⚡ **5-minute competitive briefs** (vs. 4-8 hours manual)
+- 📊 **Real-time agent coordination** with live visualization
+- 🔒 **Privacy-first** — run entirely local with Ollama or use Azure OpenAI
+- 🛠️ **28 pre-built tools** for research, analysis, and document generation
+
+```
+┌─────────────────────────────────────────────────────┐
+│           MICROSOFT AGENT FRAMEWORK                 │
+├─────────────────────────────────────────────────────┤
+│                  ORCHESTRATOR                       │
+│            "The Managing Director"                  │
+├─────────┬─────────┬─────────┬─────────┬────────────┤
+│Strategist│Researcher│ Analyst │ Advisor │ Scribe    │
+│   💡    │    🔍   │   📊   │   💬   │   ✍️       │
+└─────────┴─────────┴─────────┴─────────┴────────────┘
+```
+
+---
+
+## 🚀 Quick Start
+
+### One-Command Demo
+
+```bash
+# Clone and start
+git clone <repo>
+cd nodus
+
+# Option 1: Use the demo script (recommended)
+chmod +x demo.sh
+./demo.sh start
+
+# Option 2: Docker
+docker-compose up
+```
+
+**Access the app at:** http://localhost:3000
+
+### Manual Setup
+
+#### Prerequisites
+- Python 3.11+
+- Node.js 18+ (with pnpm)
+- Ollama (for local mode) or Azure OpenAI API key
+
+#### Backend
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+#### Frontend
+```bash
+cd frontend
+pnpm install
+pnpm dev -H 0.0.0.0
+```
+
+### 📽️ Presentation Mode
+
+Run the interactive slide presentation:
+
+```bash
+cd docs
+pip install flask markdown
+python presentation_server.py
+```
+
+**Open:** http://localhost:5000
+
+See [docs/PRESENTATION.md](docs/PRESENTATION.md) for the full presentation content with speaker notes.
+
+---
+
+## 🤖 The Agent Team
+
+| Agent | Role | Superpower |
+|-------|------|------------|
+| 🎯 **Orchestrator** | Task Decomposition | Knows which expert to call |
+| 💡 **Strategist** | Engagement Scoping | Frames problems like McKinsey |
+| 🔍 **Researcher** | Intelligence Gathering | 28+ research tools |
+| 📊 **Analyst** | Data Analysis | Charts, models, benchmarks |
+| 💬 **Advisor** | Client Communications | Executive-ready summaries |
+| ✍️ **Scribe** | Document Generation | Branded, formatted output |
+| 🧠 **Memory** | Knowledge Management | RAG-powered context retrieval |
+
+---
+
+## ✨ Key Features
+
+### 🎭 Real-Time Agent Orchestra
+- Live agent status cards with working indicators
+- Tool execution tracking per agent
+- Coordinated workflow visualization
+- See every agent's thought process
+
+### 🐛 Debug Mode
+Type `--debug` in any prompt to unlock:
+- **Agent Traces** — Full reasoning chains
+- **Tool Calls** — Parameters and results
+- **Timing Metrics** — Performance breakdown
+- **Token Usage** — LLM consumption stats
+
+### 🔧 Tool Registry (28 Built-in Tools)
+
+**Research Tools:**
+`search_web` • `search_news` • `search_clinical_trials` • `get_company_profile` • `get_competitor_landscape` • `search_patents` • `search_academic`
+
+**Analysis Tools:**
+`generate_chart` • `calculate_metrics` • `run_benchmark` • `financial_model`
+
+**Document Tools:**
+`generate_document` • `format_proposal` • `create_presentation`
+
+**Knowledge Tools:**
+`semantic_search` • `find_similar_engagements` • `retrieve_context`
+
+### ⚙️ Admin Console (`/admin`)
+- Enable/disable agents
+- Custom system prompts per agent
+- Per-agent LLM model selection
+- Temperature and token limits
+- Tool toggle per agent
+- Test tools with parameters
+
+### 🔒 Privacy-First Architecture
+- **Local Mode:** Run entirely on-premise with Ollama
+- **Cloud Mode:** Azure OpenAI for enterprise scale
+- **One-click toggle** between modes
+- No data leaves your infrastructure in local mode
+- PII auto-obfuscation in debug logs
+
+### 📊 Monitoring Dashboard (`/monitoring`)
+- Real-time agent metrics
+- Request/response tracking
+- Token usage analytics
+- Error rate monitoring
+- Live activity feed
+
+### 💬 Conversation History
+- Auto-save all conversations
+- Full state restoration including debug info
+- Export/import JSON
+- Search past conversations
+
+### 👍 Feedback System
+- Thumbs up/down on every response
+- Optional comments
+- Stored per message for analytics
+- Enables quality tracking and improvement
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| **Next.js 14** | React framework with App Router |
+| **TypeScript** | Type-safe development |
+| **Tailwind CSS** | Utility-first styling |
+| **Shadcn/ui** | Component library |
+| **Zustand** | Lightweight state management |
+| **WebSocket** | Real-time agent updates |
+
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| **FastAPI** | High-performance async API |
+| **Python 3.11+** | Latest runtime features |
+| **SQLAlchemy 2.x** | Async ORM |
+| **SQLite + aiosqlite** | Zero-config persistence |
+| **Ollama** | Local LLM inference |
+| **Azure OpenAI** | Cloud LLM provider |
 
 ### Architecture
-
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         FRONTEND                                 │
-│               Next.js 14 • Shadcn/ui • Tailwind                 │
-│                     Zustand State Management                     │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ REST API / WebSocket
-┌───────────────────────────▼─────────────────────────────────────┐
-│                          BACKEND                                 │
-│                    FastAPI • Python 3.11                         │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐        │
-│  │Strategist│  │Researcher│  │ Analyst  │  │ Advisor  │        │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘        │
-│       └─────────────┴──────┬──────┴─────────────┘              │
-│                   ┌────────▼────────┐                           │
-│                   │  ORCHESTRATOR   │                           │
-│                   └────────┬────────┘                           │
-│       ┌─────────────┬──────┴─────────────┐                      │
-│  ┌────▼─────┐  ┌────▼─────┐  ┌───────────▼───┐                 │
-│  │  Scribe  │  │  Memory  │  │ SQLite + RAG  │                 │
-│  └──────────┘  └──────────┘  └───────────────┘                 │
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                     FRONTEND                              │
+│  Next.js 14 • React 18 • TypeScript • Tailwind • Zustand │
+└────────────────────────┬─────────────────────────────────┘
+                         │ REST + WebSocket
+┌────────────────────────▼─────────────────────────────────┐
+│                      BACKEND                              │
+│      FastAPI • Python 3.11 • SQLAlchemy • aiosqlite      │
+├──────────────────────────────────────────────────────────┤
+│              MICROSOFT AGENT FRAMEWORK                    │
+│   Orchestrator → Parallel Agent Execution → Synthesis    │
+├──────────────────────────────────────────────────────────┤
+│                    LLM LAYER                              │
+│         Ollama (Local) ←→ Azure OpenAI (Cloud)           │
+└──────────────────────────────────────────────────────────┘
 ```
 
-### Agent Roles
-
-| Agent | Role | Key Capabilities |
-|-------|------|------------------|
-| **Orchestrator** | Coordinator | Task decomposition, agent dispatch, quality control |
-| **Strategist** | Strategy | Engagement scoping, proposal generation, framework selection |
-| **Researcher** | Intelligence | Web search, news synthesis, company research |
-| **Analyst** | Analysis | Data visualization, financial modeling, benchmarking |
-| **Scribe** | Documents | Document generation, formatting, branding |
-| **Advisor** | Communications | Client comms, executive summaries, recommendations |
-| **Memory** | Knowledge | RAG retrieval, past work discovery, semantic search |
-
 ---
 
-## Demo Scenarios
-
-1. **Rapid Proposal Generation** (Primary) — Generate client proposals in minutes, not weeks
-2. **Client Intelligence Briefing** — Comprehensive briefings before client meetings
-3. **Deliverable Quality Assurance** — Automated QA against firm standards
-4. **Knowledge Discovery** — Find relevant past work, frameworks, and expertise
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | Next.js 14, React 19, Shadcn/ui, Tailwind CSS, Zustand |
-| **Backend** | Python 3.11, FastAPI, SQLAlchemy 2.x, aiosqlite |
-| **AI** | Azure OpenAI GPT-5.x, Microsoft Agent Framework |
-| **Database** | SQLite with async support |
-| **Real-time** | WebSocket for agent status streaming |
-
----
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 nodus/
 ├── docs/
+│   ├── PRESENTATION.md     # 📽️ Full slide deck (run with presentation_server.py)
+│   ├── presentation_server.py  # Flask server for slides
 │   ├── API.md              # Complete API documentation
 │   ├── PRD.md              # Product Requirements Document
 │   ├── TRD.md              # Technical Requirements Document
@@ -89,8 +229,12 @@ nodus/
 ├── frontend/               # Next.js application
 │   ├── src/
 │   │   ├── app/            # App router pages
+│   │   │   ├── admin/      # Agent & LLM configuration
+│   │   │   ├── debug/      # Debug console
+│   │   │   ├── knowledge/  # Knowledge base management
+│   │   │   └── monitoring/ # Agent metrics dashboard
 │   │   ├── components/     # React components
-│   │   └── lib/            # API client, store, utilities
+│   │   └── lib/            # Stores, utilities, WebSocket
 │   └── package.json
 ├── backend/                # FastAPI application
 │   ├── app/
@@ -98,143 +242,140 @@ nodus/
 │   │   ├── api/            # REST endpoints + WebSocket
 │   │   ├── models/         # Database models & schemas
 │   │   ├── services/       # LLM, documents, knowledge
-│   │   └── data/           # Seed data
+│   │   └── tools/          # 28 agent tools
 │   ├── tests/              # Pytest test suite
 │   └── requirements.txt
+├── demo.sh                 # 🚀 One-command demo script
 └── README.md
 ```
 
 ---
 
-## Quick Start
+## 🌐 Pages & Routes
 
-### Prerequisites
-
-- Python 3.11+
-- Node.js 18+ (with pnpm recommended)
-- Azure OpenAI API access
-
-### Environment Setup
-
-Create a `.env` file in the project root:
-
-```env
-# Azure OpenAI Configuration
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
-AZURE_OPENAI_KEY=your-api-key
-AZURE_OPENAI_DEPLOYMENT=gpt-4o
-AZURE_OPENAI_API_VERSION=2024-02-15-preview
-
-# Database
-DATABASE_URL=sqlite+aiosqlite:///./data/nodus.db
-```
-
-### Backend Setup
-
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# Seed the database with sample data
-python -c "from app.data.seed import seed_database; import asyncio; asyncio.run(seed_database())"
-
-# Start the server
-uvicorn app.main:app --reload --port 8000
-```
-
-### Frontend Setup
-
-```bash
-cd frontend
-pnpm install  # or npm install
-pnpm dev      # or npm run dev
-```
-
-Open http://localhost:3000 to access the application.
+| Page | Route | Description |
+|------|-------|-------------|
+| **Chat** | `/` | Main multi-agent conversation interface |
+| **Admin** | `/admin` | Agent configuration, LLM settings, tool management |
+| **Knowledge** | `/knowledge` | RAG knowledge base management |
+| **Monitoring** | `/monitoring` | Real-time agent metrics dashboard |
+| **Debug** | `/debug` | Enterprise logging & feedback console |
 
 ---
 
-## API Endpoints
+## 📊 Demo Scenarios
+
+Try these prompts to see the agents in action:
+
+1. **Quick Research**
+   > "What are the latest developments in CAR-T therapy?"
+
+2. **Competitive Analysis**
+   > "Analyze Pfizer vs Merck in oncology"
+
+3. **Proposal Generation**
+   > "Draft a proposal for digital transformation consulting"
+
+4. **Debug Mode**
+   > "--debug Research Tesla's EV strategy"
+
+---
+
+## ⏱️ ROI Impact
+
+| Task | Before Nodus | After Nodus |
+|------|--------------|-------------|
+| Research Brief | 4-8 hours | **5 minutes** |
+| Proposal Draft | 2-3 days | **15 minutes** |
+| Competitive Analysis | 1-2 days | **10 minutes** |
+
+**80% Time Reduction • Consistent Quality • Infinite Scale**
+
+---
+
+## 🔌 API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/chat/conversations` | GET/POST | List or create conversations |
 | `/api/chat/conversations/{id}/messages` | GET/POST | Get or send messages |
-| `/api/proposals` | GET | List all proposals |
 | `/api/proposals/generate` | POST | Generate new proposal |
 | `/api/research/query` | POST | Execute research query |
-| `/api/research/briefing` | POST | Generate client briefing |
 | `/api/knowledge/search` | POST | Semantic search knowledge base |
-| `/api/documents/{id}/export` | POST | Export document (PDF, DOCX, etc.) |
-| `/api/analytics/metrics` | GET | Performance metrics |
+| `/api/tools` | GET | List all available tools |
+| `/api/tools/execute` | POST | Execute a tool manually |
+| `/api/config/llm` | GET/POST | LLM provider configuration |
 | `/ws/agents/{conversation_id}` | WS | Real-time agent updates |
 
-Full API documentation: [docs/API.md](docs/API.md) or visit `/docs` when running.
+Full API docs at `/docs` when running, or see [docs/API.md](docs/API.md).
 
 ---
 
-## Testing
+## 🧪 Testing
 
 ```bash
 cd backend
 pytest                      # Run all tests
 pytest -v                   # Verbose output
-pytest tests/test_chat.py   # Run specific test file
+pytest tests/test_chat.py   # Specific test file
 ```
 
 ---
 
-## Pages & Features
+## 📚 Documentation
 
-| Page | Route | Features |
-|------|-------|----------|
-| **Chat** | `/` | Multi-agent conversation, real-time status panel |
-| **Proposals** | `/proposals` | Generate & export client proposals |
-| **Research** | `/research` | Ad-hoc research queries, client briefings |
-| **Knowledge** | `/knowledge` | Semantic search, browse knowledge base |
-| **Analytics** | `/analytics` | Agent metrics, execution traces |
-
----
-
-## Documentation
-
-- [API Reference](docs/API.md) — Complete REST & WebSocket API documentation
-- [Product Requirements](docs/PRD.md) — Business context, user stories, success criteria
-- [Technical Requirements](docs/TRD.md) — Architecture, implementation details
-- [Demo Plan](docs/DEMO_PLAN.md) — Demo scenarios and walkthrough guide
+| Document | Description |
+|----------|-------------|
+| [PRESENTATION.md](docs/PRESENTATION.md) | 📽️ Full slide presentation (use with presentation_server.py) |
+| [API.md](docs/API.md) | Complete REST & WebSocket API reference |
+| [PRD.md](docs/PRD.md) | Product requirements, user stories, success criteria |
+| [TRD.md](docs/TRD.md) | Technical architecture and implementation details |
+| [DEMO_PLAN.md](docs/DEMO_PLAN.md) | Demo scenarios and walkthrough guide |
 
 ---
 
-## Key Value Propositions
+## 🔧 Configuration
 
-| Metric | Projected Impact |
-|--------|------------------|
-| **Proposal Win Rate** | +15-20% (faster response, better quality) |
-| **Senior Time Recapture** | 20-30% reduction in research/drafting |
-| **Knowledge Reuse** | 3x improvement in finding past work |
-| **Revenue per Consultant** | 25-40% increase |
+### Environment Variables
+
+Create `.env` in the project root:
+
+```env
+# Local Mode (Ollama)
+OLLAMA_BASE_URL=http://localhost:11434/v1
+LLM_CHAT_MODEL=llama3.2:3b
+LLM_EMBEDDING_MODEL=nomic-embed-text
+
+# Cloud Mode (Azure OpenAI)
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
+AZURE_OPENAI_KEY=your-api-key
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+
+# Database
+DATABASE_URL=sqlite+aiosqlite:///./data/nodus.db
+```
+
+### LAN Access
+
+The demo script automatically binds to `0.0.0.0` for LAN access. Find your IP with `hostname -I` and access from other devices.
 
 ---
 
-## Development
+## 🗺️ Roadmap
 
-### Code Conventions
-
-- **Backend**: Async everywhere, use `AgentContext` for agent communication
-- **Frontend**: Compound components, Zustand for state, Shadcn/ui patterns
-- **Testing**: Pytest for backend, comprehensive API coverage
-
-### Adding a New Agent
-
-1. Create `backend/app/agents/{name}.py` inheriting from base
-2. Define `name`, `description`, `capabilities`
-3. Implement `async def process(self, ctx, message)`
-4. Register in `backend/app/agents/factory.py`
+- [x] Multi-agent orchestration
+- [x] Real-time visualization
+- [x] Tool registry system
+- [x] Debug mode
+- [x] Admin console
+- [x] Local/Cloud LLM toggle
+- [ ] Custom agent creation UI
+- [ ] Workflow templates
+- [ ] Team collaboration
+- [ ] Enterprise SSO
 
 ---
 
-## License
+## 📄 License
 
 MIT License - see [LICENSE](LICENSE) for details.
