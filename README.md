@@ -43,20 +43,20 @@ A demonstration platform showcasing how AI agents can transform professional ser
 |       +--------+--------+--------+--------+--------+                 |
 |       |        |        |        |        |        |                 |
 |       v        v        v        v        v        v                 |
-|  +----------+----------+-------+-------+--------+--------+          |
-|  |Strategist|Researcher|Analyst| Scribe|Advisor | Memory |          |
-|  |proposals |web search|data & | docs &|client  | RAG &  |          |
-|  |& scoping |& intel   |models |format |comms   | search |          |
-|  +----------+----------+-------+-------+--------+--------+          |
+|  +----------+----------+-------+-------+--------+--------+           |
+|  |Strategist|Researcher|Analyst| Scribe|Advisor | Memory |           |
+|  |proposals |web search|data & | docs &|client  | RAG &  |           |
+|  |& scoping |& intel   |models |format |comms   | search |           |
+|  +----------+----------+-------+-------+--------+--------+           |
 |       |        |        |        |        |        |                 |
 |       +--------+--------+--------+--------+--------+                 |
 |                                |                                     |
 |                       +--------v--------+                            |
 |                       |    SERVICES     |                            |
 |                       | LLM (Azure GPT) |                            |
-|                       | Knowledge (RAG)  |                            |
-|                       | Documents        |                            |
-|                       | Traces           |                            |
+|                       | Knowledge (RAG)  |                           |
+|                       | Documents        |                           |
+|                       | Traces           |                           |
 |                       +--------+--------+                            |
 |                                |                                     |
 |                       +--------v--------+                            |
