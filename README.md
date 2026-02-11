@@ -2,8 +2,6 @@
 
 ## AI-Powered Professional Services Engagement Platform
 
-> **⚠️ POC / Art of the Possible** — This is a proof-of-concept demonstrating what's possible with multi-agent AI systems. Not production-ready. Built for demos and exploration.
-
 A demonstration platform showcasing how AI agents can transform professional services delivery. Built on Microsoft Agent Framework and Azure OpenAI GPT-5.x.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
@@ -20,71 +18,41 @@ A demonstration platform showcasing how AI agents can transform professional ser
 ### Architecture
 
 ```
-+----------------------------------------------------------------------+
-|                               FRONTEND                               |
-|                    Next.js 14 • Shadcn/ui • Tailwind                 |
-|                        Zustand State Management                      |
-+----------------------------------+-----------------------------------+
-                                   |
-                          REST API / WebSocket
-                                   |
-+----------------------------------v-----------------------------------+
-|                               BACKEND                                |
-|                         FastAPI • Python 3.11                        |
-|                                                                      |
-|                      +--------------------+                          |
-|                      |    ORCHESTRATOR    |                          |
-|                      | Intent Analysis    |                          |
-|                      | Task Decomposition |                          |
-|                      | Response Synthesis |                          |
-|                      +---------+----------+                          |
-|                                |                                     |
-|          Parallel dispatch based on intent                           |
-|       +--------+--------+--------+--------+--------+                 |
-|       |        |        |        |        |        |                 |
-|       v        v        v        v        v        v                 |
-|  +----------+----------+-------+-------+--------+--------+          |
-|  |Strategist|Researcher|Analyst| Scribe|Advisor | Memory |          |
-|  |proposals |web search|data & | docs &|client  | RAG &  |          |
-|  |& scoping |& intel   |models |format |comms   | search |          |
-|  +----------+----------+-------+-------+--------+--------+          |
-|       |        |        |        |        |        |                 |
-|       +--------+--------+--------+--------+--------+                 |
-|                                |                                     |
-|                       +--------v--------+                            |
-|                       |    SERVICES     |                            |
-|                       | LLM (Azure GPT) |                            |
-|                       | Knowledge (RAG)  |                            |
-|                       | Documents        |                            |
-|                       | Traces           |                            |
-|                       +--------+--------+                            |
-|                                |                                     |
-|                       +--------v--------+                            |
-|                       |   DATA LAYER    |                            |
-|                       | SQLite+aiosqlite|                            |
-|                       +-----------------+                            |
-|                                                                      |
-+----------------------------------------------------------------------+
-
-Dispatch patterns:
-  Proposals  → Strategist, Researcher, Analyst, Memory, Scribe
-  Research   → Researcher, Memory, Advisor
-  Analysis   → Analyst, Memory
-  Documents  → Scribe, Advisor
-  Questions  → Memory (+ minimal agents)
+┌─────────────────────────────────────────────────────────────────┐
+│                         FRONTEND                                 │
+│               Next.js 14 • Shadcn/ui • Tailwind                 │
+│                     Zustand State Management                     │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ REST API / WebSocket
+┌───────────────────────────▼─────────────────────────────────────┐
+│                          BACKEND                                 │
+│                    FastAPI • Python 3.11                         │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐        │
+│  │Strategist│  │Researcher│  │ Analyst  │  │ Advisor  │        │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘        │
+│       └─────────────┴──────┬──────┴─────────────┘              │
+│                   ┌────────▼────────┐                           │
+│                   │  ORCHESTRATOR   │                           │
+│                   └────────┬────────┘                           │
+│       ┌─────────────┬──────┴─────────────┐                      │
+│  ┌────▼─────┐  ┌────▼─────┐  ┌───────────▼───┐                 │
+│  │  Scribe  │  │  Memory  │  │ SQLite + RAG  │                 │
+│  └──────────┘  └──────────┘  └───────────────┘                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Agent Roles
 
 | Agent | Role | Key Capabilities |
 |-------|------|------------------|
-| **Orchestrator** | Coordinator | Intent analysis, parallel agent dispatch, response synthesis |
+| **Orchestrator** | Coordinator | Task decomposition, agent dispatch, quality control |
 | **Strategist** | Strategy | Engagement scoping, proposal generation, framework selection |
 | **Researcher** | Intelligence | Web search, news synthesis, company research |
 | **Analyst** | Analysis | Data visualization, financial modeling, benchmarking |
 | **Scribe** | Documents | Document generation, formatting, branding |
 | **Advisor** | Communications | Client comms, executive summaries, recommendations |
-| **Memory** | Knowledge | RAG retrieval, semantic search, past engagement discovery |
+| **Memory** | Knowledge | RAG retrieval, past work discovery, semantic search |
 
 ---
 
@@ -239,14 +207,14 @@ pytest tests/test_chat.py   # Run specific test file
 
 ---
 
-## What This Demo Shows
+## Key Value Propositions
 
-| Capability | Demo Scenario |
-|------------|---------------|
-| **Multi-Agent Coordination** | Orchestrator dispatches tasks to specialist agents in parallel |
-| **Rapid Content Generation** | Proposals generated in minutes vs. weeks |
-| **Knowledge Retrieval** | Semantic search over past engagements via Memory agent |
-| **Real-time Visibility** | Watch agents work via WebSocket streaming |
+| Metric | Projected Impact |
+|--------|------------------|
+| **Proposal Win Rate** | +15-20% (faster response, better quality) |
+| **Senior Time Recapture** | 20-30% reduction in research/drafting |
+| **Knowledge Reuse** | 3x improvement in finding past work |
+| **Revenue per Consultant** | 25-40% increase |
 
 ---
 
